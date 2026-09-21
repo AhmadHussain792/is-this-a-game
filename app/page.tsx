@@ -11,7 +11,7 @@ export type Phase = "countdown" | "letter" | "scrapbook";
 // The fixed target time: 3:00 AM Hong Kong Time (UTC+8)
 // This is a specific date+time the birthday content unlocks.
 // September 21, 2026 at 3:00 AM HKT = September 20, 2026 at 19:00 UTC
-const TARGET_ISO_UTC = "2026-09-21T20:00:00Z";
+const TARGET_ISO_UTC = "2026-09-20T20:00:00Z";
 
 export default function Home() {
   const [phase, setPhase] = useState<Phase>("countdown");
