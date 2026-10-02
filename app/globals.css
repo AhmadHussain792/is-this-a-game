@@ -3,37 +3,61 @@
 @tailwind utilities;
 
 html, body {
-  height: 100%;
+  min-height: 100%;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
 }
 
 body {
+  min-height: 100vh;
   font-family: Georgia, 'Times New Roman', serif;
+  color: #419099;
+  background:
+    radial-gradient(ellipse at center, #10264a 0%, #070e1c 48%, #030508 100%);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Frosted glass panel */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(20px) saturate(150%);
-  -webkit-backdrop-filter: blur(20px) saturate(150%);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.18),
-    inset 0 1px 1px rgba(255, 255, 255, 0.08);
+.coming-soon {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
 }
 
-/* Subtle glow text for the final "Happy Birthday" wish */
-.glow-text {
-  text-shadow:
-    0 0 12px rgba(255, 200, 220, 0.6),
-    0 0 28px rgba(255, 150, 180, 0.4);
+.coming-soon h1 {
+  margin: 0;
+  color: #419099;
+  font-size: clamp(2rem, 7vw, 4rem);
+  font-weight: 400;
+  text-shadow: 
+    0 0 8px rgba(90, 220, 255, 0.9)
+    0 0 24px rgba(45, 170, 255, 0.65);
+  animation: neon-flash 2.8s infinite;
 }
 
-/* Custom scrollbar - hide it for a cleaner look */
+@keyframes neon-flash {
+  0%, 18%, 22%, 58%, 62%, 100% {
+    opacity: 1;
+    text-shadow: 
+      0 0 8px rgba(90, 220, 255, 0.9)
+      0 0 24px rgba(45, 170, 255, 0.65);
+  }
+
+  20%, 60% {
+    opacity: 0.55;
+    text-shadow: 0 0 5px rgba(90, 220, 255, 0.5);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coming-soon h1 {
+    animation: none;
+  }
+}
+
+/* Custom scrollbar */
 ::-webkit-scrollbar {
   display: none;
 }
